@@ -18,7 +18,7 @@ jobs:
         with:
           owner: bkolad
           repo: child_repo
-          github_token: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN  }}
+          github_token: ${{ secrets.GITHUB_TOKEN  }}
           workflow_file_name: workflow.yml
           ref: main
           wait_interval: 10
