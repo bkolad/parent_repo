@@ -9,17 +9,16 @@ jobs:
   trigger_workflow:
     runs-on: ubuntu-latest
     steps:
-    - name: LOL
-    - uses: actions/github-script@v6
-      with:
-        github-token: ${{ secrets.PERSONAL }}
-        script: |
-          await github.rest.actions.createWorkflowDispatch({
-            owner: 'bkolad',
-            repo: 'child_repo',
-            workflow_id: 'workflow.yml',
-            ref: 'main'
-          })
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PERSONAL }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'bkolad',
+              repo: 'child_repo',
+              workflow_id: 'workflow.yml',
+              ref: 'main'
+            })
       - name: Echo Workflow name
         shell: bash
         run: |
