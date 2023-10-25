@@ -9,6 +9,14 @@ jobs:
   trigger_workflow:
     runs-on: ubuntu-latest
     steps:
+      - name: Test
+        run: |
+          curl -X POST https://api.github.com/repos/bkolad/child_repo/actions/workflows \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.G_PERSONAL }} \
+          -d '{"ref":"mains"}'
+          
+      - uses: actions/checkout@v3
       - name: Deploy
         run: |
           curl -X POST 'https://api.github.com/repos/bkolad/child_repo/actions/workflows/' \
