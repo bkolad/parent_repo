@@ -29,3 +29,16 @@ jobs:
              workflow_id: 'workflow.yaml',
               ref: 'main'
             })
+
+      - name: Test
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.G_PERSONAL }}
+          script: |
+            const result = await github.rest.actions.createWorkflowDispatch({
+              owner: 'bkolad',
+              repo: 'child_repo',
+              workflow_id: 'workflow.yaml',
+              ref: 'main'
+            })
+            console.log(result)
