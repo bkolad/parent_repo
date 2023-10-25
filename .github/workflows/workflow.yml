@@ -9,6 +9,7 @@ on:
 
 jobs: 
   trigger_workflow:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
 #      - name: Deploy
