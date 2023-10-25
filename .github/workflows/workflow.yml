@@ -13,7 +13,5 @@ jobs:
         run: |
           curl -X POST 'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/dispatches' \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          -H 'Authorization: Bearer ${{ secrets.PERSONAL }}' \
           -d '{"ref":"mains"}'
-
-      
