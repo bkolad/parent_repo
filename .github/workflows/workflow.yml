@@ -9,29 +9,6 @@ jobs:
   trigger_workflow:
     runs-on: ubuntu-latest
     steps:
-      - name: Test
-        run: |
-          curl -X POST https://api.github.com/repos/bkolad/child_repo/actions/workflows \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.G_PERSONAL }} \
-          -d '{"ref":"main"}'
-
-      
-      - name: Deploy
-        run: |
-          curl -X POST 'https://api.github.com/repos/bkolad/child_repo/actions/workflows/' \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -H 'Authorization: Bearer ${{ secrets.G_PERSONAL }}' \
-          -d '{"ref":"main"}'
-
-
-      - name: Dispatch to workflows
-        run: |
-            curl -X POST 'https://api.github.com/repos/bkolad/child_repo/actions/workflows/' \
-            -H "Accept: application/vnd.github.everest-preview+json" \
-            -H "Authorization: token ${{ secrets.G_PERSONAL }}" 
-
-     
       - uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.G_PERSONAL }}
