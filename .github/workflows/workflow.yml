@@ -13,19 +13,19 @@ jobs:
         run: |
           curl -X POST 'https://api.github.com/repos/bkolad/child_repo/actions/workflows/' \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -H 'Authorization: Bearer ${{ secrets.PERSONAL }}' \
+          -H 'Authorization: Bearer ${{ secrets.G_PERSONAL }}' \
           -d '{"ref":"mains"}'
 
       - name: Deploy2
         run: |
           curl -X POST 'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/dispatches' \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -H 'Authorization: Bearer ${{ secrets.PERSONAL }}' \
+          -H 'Authorization: Bearer ${{ secrets.G_PERSONAL }}' \
           -d '{"ref":"mains"}'
 
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.PERSONAL }}
+          github-token: ${{ secrets.G_PERSONAL }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
               owner: 'bkolad',
