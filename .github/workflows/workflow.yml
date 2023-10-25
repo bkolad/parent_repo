@@ -16,13 +16,13 @@ jobs:
           -H 'Authorization: Bearer ${{ secrets.G_PERSONAL }}' \
           -d '{"ref":"main"}'
           
-      - uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.G_PERSONAL }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: 'bkolad',
-              repo: 'child_repo',
-              workflow_id: 'workflow.yaml',
-              ref: 'main'
-            })
+  #    - uses: actions/github-script@v6
+  #      with:
+  #        github-token: ${{ secrets.G_PERSONAL }}
+  #        script: |
+  #          await github.rest.actions.createWorkflowDispatch({
+  #            owner: 'bkolad',
+  #            repo: 'child_repo',
+  #           workflow_id: 'workflow.yaml',
+  #            ref: 'main'
+  #          })
