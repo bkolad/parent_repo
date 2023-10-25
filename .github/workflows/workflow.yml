@@ -22,3 +22,14 @@ jobs:
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -H 'Authorization: Bearer ${{ secrets.PERSONAL }}' \
           -d '{"ref":"mains"}'
+
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PERSONAL }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'bkolad',
+              repo: 'child_repo',
+              workflow_id: 'workflow.yml',
+              ref: 'main'
+            })
