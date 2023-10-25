@@ -39,6 +39,6 @@ jobs:
             await github.rest.actions.createWorkflowDispatch({
               owner: 'bkolad',
               repo: 'child_repo',
-              workflow_id: 'workflow.yml',
+              workflow_id: 'workflow.yaml',
               ref: 'main'
             })
