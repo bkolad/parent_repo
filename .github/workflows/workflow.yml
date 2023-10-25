@@ -30,3 +30,7 @@ jobs:
             curl -X POST 'https://api.github.com/repos/bkolad/child_repo/actions/workflows/' \
             -H "Accept: application/vnd.github.everest-preview+json" \
             -H "Authorization: token ${{ secrets.G_PERSONAL }}" 
+
+      - name: Dispatch to workflows2
+          run: |
+            curl -XPOST -u "${{ secrets.G_PERSONAL}}:${{secrets.G_PERSONAL}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yaml/dispatches --data '{"ref": "main"}'
