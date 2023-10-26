@@ -21,7 +21,7 @@ jobs:
             })
             console.log(result)
     
-     - name: Wait for the other CI
+      - name: Wait for the other CI
         run: sleep 10s
       
       - uses: actions/checkout@v3
