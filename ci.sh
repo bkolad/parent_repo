@@ -1,6 +1,6 @@
 #!/bin/bash
 
-retries=2
+retries=6
 wait_time=10
 while :
 do 
