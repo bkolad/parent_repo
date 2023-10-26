@@ -19,13 +19,4 @@ jobs:
 #          -H 'Authorization: Bearer ${{ secrets.G_PERSONAL }}' \
 #          -d '{"ref":"main"}'
           
-      - uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GTHUB_TOKEN }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: 'bkolad',
-              repo: 'child_repo',
-             workflow_id: 'workflow.yml',
-              ref: 'main'
-            })
+   

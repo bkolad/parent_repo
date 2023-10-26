@@ -25,7 +25,7 @@ do
 
     #workflow_conclusion=$(curl -s "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs" | jq -r '.workflow_runs[0].conclusion')
 
-    json_reply="$(
+    workflow_result="$(
         curl \
         -L \
         -H 'Accept: application/vnd.github+json' \
@@ -34,13 +34,12 @@ do
         'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs'
     )"
 
-    echo "$json_reply"
+    echo "$workflow_result"
 
-
-    workflow_conclusion=$(curl -H 'Accept: application/vnd.github+json' -H 'Authorization: Bearer $ACCESS_TOKEN' -H 'X-GitHub-Api-Version: 2022-11-28' "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs")
+    workflow_conclusion=$($workflow_result| jq -r '.workflow_runs[0].conclusion')
     echo "$workflow_conclusion"
     
-    if [[ $workflow_conclusion == "success1" ]]
+    if [[ $workflow_conclusion == "success" ]]
     then
         echo "Loool"
         break
