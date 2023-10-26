@@ -26,8 +26,14 @@ do
 
     if [[ $workflow_conclusion == "success" ]]
     then
-        echo "SUCCESS"
+        echo "CI in ${REPO} succeeded"
         break
+    fi
+
+    if [[ $workflow_conclusion == "success" ]]
+    then
+        echo echo "CI in ${REPO} failed"
+        exit 1
     fi
    
     sleep $WAIT_TIME
