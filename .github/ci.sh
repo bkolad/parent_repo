@@ -33,7 +33,7 @@ do
     if [[ $workflow_conclusion == "failure" ]]
     then
         echo echo "CI in ${REPO} failed"
-        break
+        exit 1
     fi
    
     sleep $WAIT_TIME
