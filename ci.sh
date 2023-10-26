@@ -22,7 +22,7 @@ do
         'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs'
     )"
 
-    # echo "$workflow_result"
+    
 
     #workflow_conclusion=$($workflow_result | jq -r '.workflow_runs[0].conclusion')
     echo "XX"
@@ -30,11 +30,12 @@ do
     
     echo $workflow_result | jq -r '.workflow_runs[0].conclusion'
     
-    workflow_conclusion=$workflow_result | jq -r '.workflow_runs[0].conclusion'
-
+    workflow_conclusion=$($workflow_result | jq -r '.workflow_runs[0].conclusion')
     echo $workflow_conclusion
 
-    
+    echo "E"
+
+
     if [[ $workflow_conclusion == "success" ]]
     then
         echo "Loool"
