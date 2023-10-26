@@ -10,8 +10,6 @@ do
         exit 1
     fi
 
-    #workflow_conclusion=$(curl -s "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs" | jq -r '.workflow_runs[0].conclusion')
-
     workflow_result="$(
         curl \
         -s \
@@ -22,19 +20,8 @@ do
         'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs'
     )"
 
-    
-
-    #workflow_conclusion=$($workflow_result | jq -r '.workflow_runs[0].conclusion')
-    echo "XX"
-    #echo "$workflow_result"
-    
-    #echo $workflow_result | jq -r '.workflow_runs[0].conclusion'
-    
-    workflow_conclusion=$(echo $workflow_result | | jq -r '.workflow_runs[0].conclusion')
+    workflow_conclusion=$(echo $workflow_result | jq -r '.workflow_runs[0].conclusion')
     echo $workflow_conclusion
-
-    echo "E"
-
 
     if [[ $workflow_conclusion == "success" ]]
     then
