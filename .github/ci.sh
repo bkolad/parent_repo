@@ -30,7 +30,7 @@ do
         break
     fi
 
-    if [[ $workflow_conclusion == "success" ]]
+    if [[ $workflow_conclusion == "failure" ]]
     then
         echo echo "CI in ${REPO} failed"
         break
