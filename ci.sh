@@ -1,11 +1,11 @@
 #!/bin/bash
 
-retries=6
-wait_time=10
+RETRIES=6
+WAIT_TIME=10
 while :
 do 
-     echo "$retries"
-    if [[ retries -lt 1 ]]
+     echo "$RETRIES"
+    if [[ RETRIES -lt 1 ]]
     then
         exit 1
     fi
@@ -15,7 +15,7 @@ do
         -s \
         -L \
         -H "Accept: application/vnd.github+json" \
-        -H "Authorization: token $ACCESS_TOKEN" \
+        -H "Authorization: token $CI_TRIGGER_ACCESS_TOKEN" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
         "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs"
     )"
@@ -28,6 +28,6 @@ do
         echo "Loool X"
         break
     fi
-    sleep $wait_time
-    ((retries--))
+    sleep $WAIT_TIME
+    ((RETRIES--))
 done 
