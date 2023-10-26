@@ -28,4 +28,4 @@ jobs:
       - name: Test2
         env:
           CI_TRIGGER_ACCESS_TOKEN: ${{ secrets.G_PERSONAL }}
-        run: ./ci.sh
+        run: .github/ci.sh
