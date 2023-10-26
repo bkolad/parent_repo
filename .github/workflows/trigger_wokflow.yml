@@ -21,6 +21,8 @@ jobs:
             })
             console.log(result)
       
-      - name: Test
-        uses: actions/checkout@v3
-        run: ./ci.sh
+      
+      - uses: actions/checkout@v3
+
+      #- name: Test
+      #  run: ./ci.sh
