@@ -3,6 +3,7 @@
 RETRIES=9
 WAIT_TIME=10
 REPO="child_repo"
+
 while :
 do 
     if [[ RETRIES -lt 1 ]]
@@ -26,13 +27,13 @@ do
 
     if [[ $workflow_conclusion == "success" ]]
     then
-        echo "CI in ${REPO} succeeded"
+        echo "CI in ${REPO} succeeded."
         break
     fi
 
     if [[ $workflow_conclusion == "failure" ]]
     then
-        echo echo "CI in ${REPO} failed"
+        echo "CI in ${REPO} failed."
         exit 1
     fi
    
