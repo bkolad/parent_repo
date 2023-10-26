@@ -27,7 +27,13 @@ do
     #workflow_conclusion=$($workflow_result | jq -r '.workflow_runs[0].conclusion')
     echo "XX"
     #echo "$workflow_result"
+    
     echo $workflow_result | jq -r '.workflow_runs[0].conclusion'
+    
+    workflow_conclusion=$workflow_result | jq -r '.workflow_runs[0].conclusion'
+
+    echo $workflow_conclusion
+
     
     if [[ $workflow_conclusion == "success" ]]
     then
