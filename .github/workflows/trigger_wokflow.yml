@@ -1,0 +1,23 @@
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger_workflow:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.G_PERSONAL }}
+          script: |
+            const result = await github.rest.actions.createWorkflowDispatch({
+              owner: 'bkolad',
+              repo: 'child_repo',
+              workflow_id: 'workflow.yml',
+              ref: 'main'
+            })
+            console.log(result)
