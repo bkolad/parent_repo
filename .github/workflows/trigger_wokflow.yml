@@ -25,4 +25,5 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Test2
-        run: ./ci.sh
+        shell: bash-wrapper {0}
+        run: bash ci.sh
