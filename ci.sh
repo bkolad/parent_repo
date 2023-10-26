@@ -2,17 +2,6 @@
 
 retries=2
 wait_time=10
-
-curl_command="-L \
-  -H 'Accept: application/vnd.github+json' \
-  -H 'Authorization: Bearer ${{ secrets.G_PERSONAL }}' \
-  -H 'X-GitHub-Api-Version: 2022-11-28' \
-  'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs'"
-
-curl_command2="-s \
-  'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs'"
-
-
 while :
 do 
      echo "$retries"
@@ -20,8 +9,6 @@ do
     then
         exit 1
     fi
-
-    
 
     #workflow_conclusion=$(curl -s "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs" | jq -r '.workflow_runs[0].conclusion')
 
@@ -34,9 +21,9 @@ do
         'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs'
     )"
 
-    echo "$workflow_result"
+    # echo "$workflow_result"
 
-    workflow_conclusion=$($workflow_result| jq -r '.workflow_runs[0].conclusion')
+    workflow_conclusion=$($workflow_result | jq -r '.workflow_runs[0].conclusion')
     echo "$workflow_conclusion"
     
     if [[ $workflow_conclusion == "success" ]]
