@@ -21,17 +21,14 @@ do
         exit 1
     fi
 
-    echo "$"
+    
 
     #workflow_conclusion=$(curl -s "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs" | jq -r '.workflow_runs[0].conclusion')
 
 
-    workflow_conclusion=$(curl -H 'Accept: application/vnd.github+json' -H 'Authorization: Bearer ${{ secrets.G_PERSONAL }}' -H 'X-GitHub-Api-Version: 2022-11-28' "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs")
-
+    workflow_conclusion=$(curl -H 'Accept: application/vnd.github+json' -H 'Authorization: Bearer $ACCESS_TOKEN' -H 'X-GitHub-Api-Version: 2022-11-28' "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs")
     echo "$workflow_conclusion"
-    c=$(curl $curl_command2)
-    echo "$c"
-
+    
     if [[ $workflow_conclusion == "success1" ]]
     then
         echo "Loool"
