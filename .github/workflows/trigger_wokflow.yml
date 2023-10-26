@@ -21,7 +21,7 @@ jobs:
             })
             console.log(result)
 
-  wait_for_ci:
-    - uses: actions/checkout@v3
-    - name: Run CI script
-      run: ./ci.sh
+#  wait_for_ci:
+#    - uses: actions/checkout@v3
+#    - name: Run CI script
+#      run: ./ci.sh
