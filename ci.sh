@@ -27,6 +27,8 @@ do
     workflow_conclusion=$($workflow_result | jq -r '.workflow_runs[0].conclusion')
     echo "XX"
     echo "$workflow_conclusion"
+
+    echo $workflow_result | jq -r '.workflow_runs[0].conclusion'
     
     if [[ $workflow_conclusion == "success" ]]
     then
