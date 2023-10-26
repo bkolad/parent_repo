@@ -5,7 +5,7 @@ WAIT_TIME=10
 REPO="child_repo"
 while :
 do 
-     echo "$RETRIES"
+    echo "XX"
     if [[ RETRIES -lt 1 ]]
     then
         exit 1
@@ -29,6 +29,7 @@ do
         echo "SUCCESS"
         break
     fi
+   
     sleep $WAIT_TIME
     ((RETRIES--))
 
