@@ -6,6 +6,7 @@ REPO="child_repo"
 
 while :
 do 
+    echo ""
     if [[ RETRIES -lt 1 ]]
     then
         echo "Timeout: unable to read workflow_conclusion for ${REPO}"
