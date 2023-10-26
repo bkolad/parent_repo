@@ -14,6 +14,7 @@ do
 
     workflow_result="$(
         curl \
+        -s \
         -L \
         -H 'Accept: application/vnd.github+json' \
         -H "Authorization: token $ACCESS_TOKEN" \
@@ -24,6 +25,7 @@ do
     # echo "$workflow_result"
 
     workflow_conclusion=$($workflow_result | jq -r '.workflow_runs[0].conclusion')
+    echo "XX"
     echo "$workflow_conclusion"
     
     if [[ $workflow_conclusion == "success" ]]
