@@ -17,14 +17,14 @@ do
         exit 1
     fi
 
-    echo "$curl_command"
+    echo "$"
 
     #workflow_conclusion=$(curl -s "https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs" | jq -r '.workflow_runs[0].conclusion')
 
-    echo "$curl_command"
-    workflow_conclusion=$curl_command
+    c=$(curl $curl_command)
+    echo "$c"
+    workflow_conclusion=$(curl $curl_command | jq -r '.workflow_runs[0].conclusion')
     echo "$workflow_conclusion"
-    echo "checj"
 
     if [[ $workflow_conclusion == "success1" ]]
     then
