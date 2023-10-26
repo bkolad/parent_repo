@@ -4,8 +4,6 @@ retries=2
 wait_time=10
 
 curl_command="-L \
-  -H 'Accept: application/vnd.github+json' \
-  -H 'X-GitHub-Api-Version: 2022-11-28' \
   'https://api.github.com/repos/bkolad/child_repo/actions/workflows/workflow.yml/runs'"
 
 while :
