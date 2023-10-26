@@ -20,7 +20,9 @@ jobs:
               ref: 'main'
             })
             console.log(result)
-      
+    
+    - name: Wait for the other CI
+        run: sleep 10s
       
       - uses: actions/checkout@v3
       - name: Test2
