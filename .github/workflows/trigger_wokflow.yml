@@ -6,7 +6,6 @@ on:
 
 jobs:
   trigger_workflow:
-    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Test
@@ -21,3 +20,5 @@ jobs:
               ref: 'main'
             })
             console.log(result)
+
+  wait_for_conclusion:
