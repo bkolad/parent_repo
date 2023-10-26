@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RETRIES=6
+RETRIES=9
 WAIT_TIME=10
 REPO="child_repo"
 while :
@@ -33,7 +33,7 @@ do
     if [[ $workflow_conclusion == "success" ]]
     then
         echo echo "CI in ${REPO} failed"
-        exit 1
+        break
     fi
    
     sleep $WAIT_TIME
