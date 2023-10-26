@@ -20,8 +20,7 @@ jobs:
               ref: 'main'
             })
             console.log(result)
-
-#  wait_for_ci:
-#    - uses: actions/checkout@v3
-#    - name: Run CI script
-#      run: ./ci.sh
+      
+      - name: Test
+        uses: actions/checkout@v3
+        run: ./ci.sh
