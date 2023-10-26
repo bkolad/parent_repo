@@ -25,7 +25,7 @@ do
 
     if [[ $workflow_conclusion == "success" ]]
     then
-        echo "Loool"
+        echo "Loool X"
         break
     fi
     sleep $wait_time
